@@ -1,0 +1,36 @@
+{
+  "name": "lexia-audit-action",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GitHub Action for durable Lexia EU AI Act compliance audits",
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=24"
+  },
+  "files": [
+    "action.yml",
+    "dist/index.js",
+    "README.md",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "ncc build src/index.ts -o dist --minify --no-source-map-register --target es2022",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/**/*.test.ts",
+    "check:dist": "node scripts/check-dist.mjs",
+    "smoke:package": "node scripts/smoke-package.mjs",
+    "audit:high": "npm audit --audit-level=high",
+    "verify": "npm run typecheck && npm test && npm run check:dist && npm run smoke:package && npm run audit:high"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3",
+    "@vercel/ncc": "0.44.1",
+    "tsx": "4.23.1",
+    "typescript": "5.9.3"
+  }
+}

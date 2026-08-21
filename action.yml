@@ -1,0 +1,61 @@
+name: "Lexia EU AI Act Audit"
+description: "Run a durable EU AI Act compliance audit and enforce a score policy in GitHub Actions"
+author: "Lexia"
+
+branding:
+  icon: "shield"
+  color: "purple"
+
+inputs:
+  api-token:
+    description: "Lexia workspace API token. Store it as a GitHub Actions secret."
+    required: true
+  workspace-id:
+    description: "Lexia workspace identifier."
+    required: true
+  api-url:
+    description: "Official Lexia API base URL."
+    required: false
+    default: "https://lexia-hwhe.onrender.com"
+  wait-for-result:
+    description: "Wait for the durable audit to reach a terminal state."
+    required: false
+    default: "true"
+  timeout-minutes:
+    description: "Maximum time for API retries and audit polling (1-120 minutes)."
+    required: false
+    default: "20"
+  poll-interval-seconds:
+    description: "Base polling interval (2-60 seconds)."
+    required: false
+    default: "5"
+  minimum-score:
+    description: "Minimum accepted compliance score (0-100)."
+    required: false
+    default: "80"
+  fail-on:
+    description: "Gate policy: non-compliant, audit-failure, or never."
+    required: false
+    default: "non-compliant"
+
+outputs:
+  audit-id:
+    description: "Lexia audit identifier."
+  status:
+    description: "Final or last observed audit status."
+  conclusion:
+    description: "Policy conclusion: success, failure, or pending."
+  compliance-score:
+    description: "Final compliance score when available."
+  risk-level:
+    description: "Final EU AI Act risk level when available."
+  dashboard-url:
+    description: "URL of the audit in the Lexia dashboard when available."
+  json-report-url:
+    description: "URL of the JSON report artifact when available."
+  pdf-report-url:
+    description: "URL of the PDF report artifact when available."
+
+runs:
+  using: "node24"
+  main: "dist/index.js"
