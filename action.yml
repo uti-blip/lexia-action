@@ -3,8 +3,8 @@ description: "Run a durable EU AI Act compliance audit and enforce a score polic
 author: "Lexia"
 
 branding:
-  icon: "shield"
-  color: "purple"
+  icon: "triangle"
+  color: "blue"
 
 inputs:
   api-token:

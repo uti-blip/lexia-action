@@ -1,6 +1,10 @@
+<p align="center">
+  <img src="assets/lexia-logo.png" alt="Lexia — hand-drawn blue triangular logo" width="180" height="180">
+</p>
+
 # Lexia EU AI Act Audit Action
 
-[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-Lexia%20EU%20AI%20Act%20Audit-6f42c1?logo=github)](https://github.com/marketplace/actions/lexia-eu-ai-act-audit)
+[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-Lexia%20EU%20AI%20Act%20Audit-1400D4?logo=github)](https://github.com/marketplace/actions/lexia-eu-ai-act-audit)
 
 Run a durable Lexia audit from a push, pull request, schedule, or manual workflow. The action submits immutable GitHub run metadata, waits for the worker-backed audit, writes a job summary, exposes report URLs, and can enforce a minimum EU AI Act compliance score.
 
